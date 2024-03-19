@@ -16,6 +16,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -32,6 +33,7 @@ class JsonAdaptedPerson {
 
     private final String category;
     private final List<JsonAdaptedTag> tags = new ArrayList<>();
+    private final String remark;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -40,7 +42,7 @@ class JsonAdaptedPerson {
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("address") String address,
                              @JsonProperty("category") String category,
-                             @JsonProperty("tags") List<JsonAdaptedTag> tags) {
+                             @JsonProperty("tags") List<JsonAdaptedTag> tags, @JsonProperty("remark") String remark) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -49,6 +51,7 @@ class JsonAdaptedPerson {
         if (tags != null) {
             this.tags.addAll(tags);
         }
+        this.remark = remark;
     }
 
     /**
@@ -59,6 +62,7 @@ class JsonAdaptedPerson {
         phone = source.getPhone().value;
         email = source.getEmail().value;
         address = source.getAddress().value;
+        remark = source.getRemark().value;
         category = source.getCategory().value;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
@@ -117,8 +121,13 @@ class JsonAdaptedPerson {
         }
         final Category modelCategory = new Category(category);
 
+        if (remark == null) {
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Remark.class.getSimpleName()));
+        }
+        final Remark modelRemark = new Remark(remark);
+
         final Set<Tag> modelTags = new HashSet<>(personTags);
-        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelCategory, modelTags);
+        return new Person(modelName, modelPhone, modelEmail, modelAddress, modelCategory, modelTags, modelRemark);
     }
 
 }

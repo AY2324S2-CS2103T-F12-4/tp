@@ -27,6 +27,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.Remark;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -102,8 +103,10 @@ public class EditCommand extends Command {
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Category updatedCategory = editPersonDescriptor.getCategory().orElse(personToEdit.getCategory());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        Remark updatedRemark = editPersonDescriptor.getRemark().orElse(personToEdit.getRemark());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedCategory, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedCategory,
+                updatedTags, updatedRemark);
     }
 
     @Override
@@ -141,6 +144,7 @@ public class EditCommand extends Command {
         private Address address;
         private Set<Tag> tags;
         private Category category;
+        private Remark remark;
 
         public EditPersonDescriptor() {
         }
@@ -156,6 +160,7 @@ public class EditCommand extends Command {
             setAddress(toCopy.address);
             setTags(toCopy.tags);
             setCategory(toCopy.category);
+            setRemark(toCopy.remark);
         }
 
         /**
@@ -220,6 +225,13 @@ public class EditCommand extends Command {
          */
         public Optional<Set<Tag>> getTags() {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
+        }
+
+        public void setRemark(Remark remark) {
+            this.remark = remark;
+        }
+        public Optional<Remark> getRemark() {
+            return Optional.ofNullable(remark);
         }
 
 
