@@ -22,6 +22,22 @@ public class Staff extends Person {
     }
 
     /**
+     * Sets the group of the staff.
+     */
+    @Override
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    /**
+     * Returns the group of the staff.
+     */
+    @Override
+    public Group getGroup() {
+        return group;
+    }
+
+    /**
      * Sets the group number of the staff.
      */
     public void setGroupNumber(int groupNumber) {

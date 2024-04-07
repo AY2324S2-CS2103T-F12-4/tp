@@ -1,4 +1,7 @@
 package seedu.address.model.person;
+
+import seedu.address.model.person.exceptions.GroupSponsorException;
+
 /**
  * Represents a sponsor in the hackathon.
  */
@@ -15,6 +18,36 @@ public class Sponsor extends Person {
      */
     public Sponsor(Name name, Phone phone, Email email, Category category, Comment comment) {
         super(name, phone, email, category, comment);
+    }
+
+    /**
+     * Throws GroupSponsorException.
+     */
+    @Override
+    public void setGroup(Group group) throws GroupSponsorException {
+        throw new GroupSponsorException();
+    }
+
+    /**
+     * Throws GroupSponsorException.
+     */
+    @Override
+    public Group getGroup() throws GroupSponsorException {
+        throw new GroupSponsorException();
+    }
+
+    /**
+     * Throws GroupSponsorException.
+     */
+    public void setGroupNumber(int groupNumber) throws GroupSponsorException {
+        throw new GroupSponsorException();
+    }
+
+    /**
+     * Throws GroupSponsorException.
+     */
+    public int getGroupNumber() throws GroupSponsorException {
+        throw new GroupSponsorException();
     }
 
     @Override

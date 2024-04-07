@@ -64,6 +64,11 @@ public abstract class Person {
         return comment;
     }
 
+    public abstract Group getGroup();
+    public abstract void setGroup(Group group);
+    public abstract int getGroupNumber();
+    public abstract void setGroupNumber(int groupNumber);
+
 
     /**
      * Returns true if both persons have the same name.

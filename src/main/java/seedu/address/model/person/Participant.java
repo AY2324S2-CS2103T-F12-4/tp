@@ -22,8 +22,25 @@ public class Participant extends Person {
     }
 
     /**
+     * Sets the group of the participant.
+     */
+    @Override
+    public void setGroup(Group group) {
+        this.group = group;
+    }
+
+    /**
+     * Returns the group of the participant.
+     */
+    @Override
+    public Group getGroup() {
+        return group;
+    }
+
+    /**
      * Sets the group number of the participant.
      */
+    @Override
     public void setGroupNumber(int groupNumber) {
         this.group = new Group(groupNumber);
     }
@@ -31,6 +48,7 @@ public class Participant extends Person {
     /**
      * Returns the group number of the participant.
      */
+    @Override
     public int getGroupNumber() {
         return group.getGroupNumber();
     }
