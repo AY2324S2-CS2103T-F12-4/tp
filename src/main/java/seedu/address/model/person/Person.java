@@ -5,6 +5,7 @@ import static seedu.address.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Objects;
 
 import seedu.address.commons.util.ToStringBuilder;
+import seedu.address.model.person.exceptions.GroupSponsorException;
 
 /**
  * Represents a Person in the address book.
@@ -65,9 +66,9 @@ public abstract class Person {
     }
 
     public abstract Group getGroup();
-    public abstract void setGroup(Group group);
+    public abstract void setGroup(Group group) throws GroupSponsorException;
     public abstract int getGroupNumber();
-    public abstract void setGroupNumber(int groupNumber);
+    public abstract void setGroupNumber(int groupNumber) throws GroupSponsorException;
 
 
     /**

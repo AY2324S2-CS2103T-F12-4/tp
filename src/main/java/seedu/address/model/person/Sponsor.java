@@ -29,11 +29,11 @@ public class Sponsor extends Person {
     }
 
     /**
-     * Throws GroupSponsorException.
+     * Returns null.
      */
     @Override
-    public Group getGroup() throws GroupSponsorException {
-        throw new GroupSponsorException();
+    public Group getGroup() {
+        return null;
     }
 
     /**
@@ -44,10 +44,10 @@ public class Sponsor extends Person {
     }
 
     /**
-     * Throws GroupSponsorException.
+     * Returns -1.
      */
-    public int getGroupNumber() throws GroupSponsorException {
-        throw new GroupSponsorException();
+    public int getGroupNumber() {
+        return -1;
     }
 
     @Override
