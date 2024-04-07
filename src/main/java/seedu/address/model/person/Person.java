@@ -66,9 +66,9 @@ public abstract class Person {
     }
 
     public abstract Group getGroup();
-    public abstract void setGroup(Group group) throws GroupSponsorException;
+    public abstract void setGroup(Group group);
     public abstract int getGroupNumber();
-    public abstract void setGroupNumber(int groupNumber) throws GroupSponsorException;
+    public abstract void setGroupNumber(int groupNumber);
 
 
     /**

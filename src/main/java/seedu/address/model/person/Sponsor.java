@@ -24,7 +24,7 @@ public class Sponsor extends Person {
      * Throws GroupSponsorException.
      */
     @Override
-    public void setGroup(Group group) throws GroupSponsorException {
+    public void setGroup(Group group) {
         throw new GroupSponsorException();
     }
 
@@ -39,7 +39,7 @@ public class Sponsor extends Person {
     /**
      * Throws GroupSponsorException.
      */
-    public void setGroupNumber(int groupNumber) throws GroupSponsorException {
+    public void setGroupNumber(int groupNumber) {
         throw new GroupSponsorException();
     }
 

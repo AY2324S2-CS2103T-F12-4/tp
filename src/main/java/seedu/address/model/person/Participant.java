@@ -1,4 +1,7 @@
 package seedu.address.model.person;
+
+import seedu.address.commons.util.ToStringBuilder;
+
 /**
  * Represents a participants in hackathon.
  * Guarantees: details are present and not null, field values are validated, immutable.
@@ -64,5 +67,18 @@ public class Participant extends Person {
         }
 
         return super.isSamePerson(other);
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(super.toString())
+                .add("group", group)
+                .toString();
+    }
+
+    @Override
+    public String getInformation() {
+        return super.getInformation()
+                + "Group: " + group + "\n";
     }
 }

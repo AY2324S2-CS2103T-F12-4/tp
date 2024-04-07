@@ -16,6 +16,7 @@ import seedu.address.model.person.Participant;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Sponsor;
 import seedu.address.model.person.Staff;
+import seedu.address.model.person.exceptions.GroupSponsorException;
 
 /**
  * Changes the group of a person identified by the index number used in the displayed person list.
@@ -67,7 +68,7 @@ public class GroupCommand extends Command implements ReversibleCommand {
     }
 
     @Override
-    public CommandResult execute(Model model) throws CommandException {
+    public CommandResult execute(Model model) throws CommandException, GroupSponsorException {
         requireNonNull(model);
         List<Person> lastShownList = model.getFilteredPersonList();
 
@@ -80,23 +81,12 @@ public class GroupCommand extends Command implements ReversibleCommand {
         if (personToGroup instanceof Sponsor) {
             throw new CommandException(MESSAGE_PERSON_WITHOUT_GROUP);
 
-        } else if (personToGroup instanceof Staff) {
-            Staff staffToGroup = (Staff) personToGroup;
+        } else {
+            originalGroupNumber = personToGroup.getGroupNumber();
+            groupedPerson = personToGroup;
 
-            originalGroupNumber = staffToGroup.getGroupNumber();
-            groupedPerson = staffToGroup;
-
-            staffToGroup.setGroupNumber(targetGroupNumber);
-            model.setPerson(personToGroup, staffToGroup);
-
-        } else if (personToGroup instanceof Participant) {
-            Participant participantToGroup = (Participant) personToGroup;
-
-            originalGroupNumber = participantToGroup.getGroupNumber();
-            groupedPerson = participantToGroup;
-
-            participantToGroup.setGroupNumber(targetGroupNumber);
-            model.setPerson(personToGroup, participantToGroup);
+            groupedPerson.setGroupNumber(targetGroupNumber);
+            model.setPerson(personToGroup, groupedPerson);
         }
 
         model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);

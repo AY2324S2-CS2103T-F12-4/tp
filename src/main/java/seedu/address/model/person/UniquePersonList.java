@@ -110,13 +110,7 @@ public class UniquePersonList implements Iterable<Person> {
             throw new PersonNotFoundException();
         }
 
-        if (target instanceof Staff) {
-            Staff staff = (Staff) target;
-            staff.setGroupNumber(groupNumber);
-        } else if (target instanceof Participant) {
-            Participant participant = (Participant) target;
-            participant.setGroupNumber(groupNumber);
-        }
+        target.setGroupNumber(groupNumber);
 
         internalList.set(index, target);
     }

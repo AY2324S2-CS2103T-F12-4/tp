@@ -1,5 +1,7 @@
 package seedu.address.model.person;
 
+import seedu.address.commons.util.ToStringBuilder;
+
 /**
  * Represents a staff in the hackathon.
  */
@@ -61,5 +63,18 @@ public class Staff extends Person {
         }
 
         return super.isSamePerson(other);
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(super.toString())
+                .add("group", group)
+                .toString();
+    }
+
+    @Override
+    public String getInformation() {
+        return super.getInformation()
+                + "Group: " + group + "\n";
     }
 }

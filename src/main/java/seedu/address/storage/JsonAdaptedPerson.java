@@ -4,13 +4,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.Category;
-import seedu.address.model.person.Comment;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Person;
-import seedu.address.model.person.PersonFactory;
-import seedu.address.model.person.Phone;
+import seedu.address.model.person.*;
 
 /**
  * Jackson-friendly version of {@link Person}.
@@ -24,6 +18,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String category;
     private final String comment;
+    private final String group;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -31,12 +26,13 @@ class JsonAdaptedPerson {
     @JsonCreator
     public JsonAdaptedPerson(@JsonProperty("name") String name, @JsonProperty("phone") String phone,
             @JsonProperty("email") String email, @JsonProperty("category") String category,
-                             @JsonProperty("comment") String comment) {
+                             @JsonProperty("comment") String comment, @JsonProperty("group") String group) {
         this.name = name;
         this.phone = phone;
         this.email = email;
         this.category = category;
         this.comment = comment;
+        this.group = group;
     }
 
     /**
@@ -48,6 +44,7 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         category = source.getCategory().value;
         comment = source.getComment().value;
+        group = source.getGroup().value;
     }
 
     /**
@@ -99,7 +96,13 @@ class JsonAdaptedPerson {
 
         final Comment modelComment = new Comment(comment);
 
-        return PersonFactory.createPerson(modelName, modelPhone, modelEmail, modelCategory, modelComment);
+        Person model = PersonFactory.createPerson(modelName, modelPhone, modelEmail, modelCategory, modelComment);
+
+        if (Group.isValidGroup(group)) {
+            model.setGroupNumber(Integer.parseInt(group));
+        }
+
+        return model;
     }
 
 }
