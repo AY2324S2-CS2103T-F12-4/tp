@@ -4,9 +4,14 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.person.*;
-
-import java.util.Optional;
+import seedu.address.model.person.Category;
+import seedu.address.model.person.Comment;
+import seedu.address.model.person.Email;
+import seedu.address.model.person.Group;
+import seedu.address.model.person.Name;
+import seedu.address.model.person.Person;
+import seedu.address.model.person.PersonFactory;
+import seedu.address.model.person.Phone;
 
 /**
  * Jackson-friendly version of {@link Person}.
@@ -104,11 +109,6 @@ class JsonAdaptedPerson {
         final Comment modelComment = new Comment(comment);
 
         Person model = PersonFactory.createPerson(modelName, modelPhone, modelEmail, modelCategory, modelComment);
-
-//        if (group == null) {
-//            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
-//                    Group.class.getSimpleName()));
-//        }
 
         if (Group.isValidGroup(group)) {
             model.setGroupNumber(Integer.parseInt(group));
