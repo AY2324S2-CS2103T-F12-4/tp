@@ -20,7 +20,7 @@ class JsonAdaptedPerson {
     private final String email;
     private final String category;
     private final String comment;
-    private final Optional<String> group;
+    private final String group;
 
     /**
      * Constructs a {@code JsonAdaptedPerson} with the given person details.
@@ -35,7 +35,7 @@ class JsonAdaptedPerson {
         this.email = email;
         this.category = category;
         this.comment = comment;
-        this.group = Optional.ofNullable(group);
+        this.group = group;
     }
 
     /**
@@ -47,10 +47,10 @@ class JsonAdaptedPerson {
         email = source.getEmail().value;
         category = source.getCategory().value;
         comment = source.getComment().value;
-        if (Optional.ofNullable(source.getGroup()).isPresent()) {
-            group = Optional.of(source.getGroup().value);
+        if (source.getGroup() == null) {
+            group = null;
         } else {
-            group = Optional.empty();
+            group = source.getGroup().value;
         }
     }
 
@@ -105,13 +105,13 @@ class JsonAdaptedPerson {
 
         Person model = PersonFactory.createPerson(modelName, modelPhone, modelEmail, modelCategory, modelComment);
 
-        if (group.isEmpty()) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
-                    Group.class.getSimpleName()));
-        }
+//        if (group == null) {
+//            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT,
+//                    Group.class.getSimpleName()));
+//        }
 
-        if (Group.isValidGroup(group.get())) {
-            model.setGroupNumber(Integer.parseInt(group.get()));
+        if (Group.isValidGroup(group)) {
+            model.setGroupNumber(Integer.parseInt(group));
         }
 
         return model;

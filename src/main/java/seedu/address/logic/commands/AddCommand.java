@@ -15,6 +15,7 @@ import seedu.address.model.Model;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Group;
 import seedu.address.model.person.Sponsor;
+import seedu.address.model.person.exceptions.GroupSponsorException;
 
 import java.util.Optional;
 
@@ -75,7 +76,11 @@ public class AddCommand extends Command implements ReversibleCommand {
         }
 
         if (group.isPresent()) {
-            toAdd.setGroup(group.get());
+            try {
+                toAdd.setGroup(group.get());
+            } catch (GroupSponsorException e) {
+                throw new CommandException(MESSAGE_GROUP_SPONSOR);
+            }
         } else if (!(toAdd instanceof Sponsor)) {
             toAdd.setGroupNumber(0);
         }
