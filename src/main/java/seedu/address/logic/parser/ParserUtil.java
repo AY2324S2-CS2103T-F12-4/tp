@@ -158,7 +158,10 @@ public class ParserUtil {
      * @throws ParseException if the given {@code group} is invalid.
      */
     public static Group parseGroup(String group) throws ParseException {
-        requireNonNull(group);
+        if (group == null) {
+            return null;
+        }
+
         String trimmedGroup = group.trim();
         int groupNumber;
 

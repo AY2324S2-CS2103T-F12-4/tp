@@ -13,6 +13,10 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.commands.exceptions.UndoException;
 import seedu.address.model.Model;
 import seedu.address.model.person.Person;
+import seedu.address.model.person.Group;
+import seedu.address.model.person.Sponsor;
+
+import java.util.Optional;
 
 /**
  * Adds a person to the address book.
@@ -39,8 +43,10 @@ public class AddCommand extends Command implements ReversibleCommand {
     public static final String MESSAGE_UNDO_NONEXISTENT_PERSON = "Undo failed:"
             + "Person does not exist in the address book";
     public static final String MESSAGE_DUPLICATE_PERSON = "This person already exists in the address book";
+    public static final String MESSAGE_GROUP_SPONSOR = "Sponsor doesn't have a group";
 
     private final Person toAdd;
+    private final Optional<Group> group;
 
     /**
      * Creates an AddCommand to add the specified {@code Person}
@@ -48,6 +54,16 @@ public class AddCommand extends Command implements ReversibleCommand {
     public AddCommand(Person person) {
         requireNonNull(person);
         toAdd = person;
+        group = Optional.empty();
+    }
+
+    /**
+     * Creates an AddCommand to add the specified {@code Person} with specified {@code group}
+     */
+    public AddCommand(Person person, Group group) {
+        requireNonNull(person);
+        toAdd = person;
+        this.group = Optional.ofNullable(group);
     }
 
     @Override
@@ -56,6 +72,12 @@ public class AddCommand extends Command implements ReversibleCommand {
 
         if (model.hasPerson(toAdd)) {
             throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        }
+
+        if (group.isPresent()) {
+            toAdd.setGroup(group.get());
+        } else if (!(toAdd instanceof Sponsor)) {
+            toAdd.setGroupNumber(0);
         }
 
         model.addPerson(toAdd);
