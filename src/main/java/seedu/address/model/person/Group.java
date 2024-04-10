@@ -9,8 +9,9 @@ public class Group {
     public static final String MESSAGE_CONSTRAINTS =
             "Group should be a positive integer.";
     private static int totalGroupNumber = 0;
-    private final int groupNumber;
+
     public final String value;
+    private final int groupNumber;
 
     /**
      * Constructs a {@code Group} with group number 0.

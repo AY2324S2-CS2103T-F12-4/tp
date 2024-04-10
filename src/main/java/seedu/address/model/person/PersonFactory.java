@@ -41,14 +41,14 @@ public class PersonFactory {
     public static Person createPerson(Name name, Phone phone, Email email, Category category, Group group,
                                       Comment comment) {
         if (group == null) {
-            return createPerson(name, phone, email,category,comment);
+            return createPerson(name, phone, email, category, comment);
         }
 
         if (category.value.equals("SPONSOR")) {
             throw new IllegalArgumentException("Sponsor doesn't have a group");
         }
 
-        Person person = createPerson(name, phone, email,category,comment);
+        Person person = createPerson(name, phone, email, category, comment);
         person.setGroup(group);
         return person;
     }
