@@ -8,7 +8,7 @@ WELCOME TO HACKLINK!
 ## Introduction
 
 Again, Welcome to HackLink! This user guide is designed to help you navigate and utilize this HackLink app to its full
-potential. HackLink is a Hackathon Participant Management Application, designed to help organizers efficiently manage
+potential. HackLink is a hackathon participant management application, designed to help organizers efficiently manage
 contact information for hackathons. This app is aimed at simplifying the management of participant, staff, and sponsor's
 information. With this user guide, you will easily and quickly learn to make use of important features, such as adding,
 deleting, finding, and commenting contacts. you can streamline the complex process of organizing and coordinating your
@@ -63,11 +63,11 @@ event using HackLink.
 7. [Utility features](#utility-features)
     - [Saving the data](#saving-the-data)
     - [Editing the data file](#editing-the-data-file)
+    - [Undo](#undo)
+    - [Redo](#redo)
     - [Navigating to older commands](#navigating-to-older-commands)
     - [Aliases](#aliases)
     - [Shortcuts](#shortcuts)
-    - [Undo](#undo)
-    - [Redo](#redo)
 
 8. [Event window](#event-window)
 9. [FAQ](#faq)
@@ -85,6 +85,8 @@ HackLink allows you to manage your hackathon event efficiently by providing foll
 - Finding a person by keywords
 - Exporting selected people
 - Managing events
+
+[Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -135,6 +137,8 @@ To begin using HackLink, please follow these steps:
 
 8. Refer to the [Main features](#main-features) below for details of each command.
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Navigating this User Guide
 
 ---
@@ -147,6 +151,7 @@ Let's take a look at the basic components of the User Interface(UI)!
 ![annotatedeventwindow](images/annotatedeventwindow.png)
 ![annotatedeventcard](images/annotatedeventcard.png)
 
+[Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -180,6 +185,8 @@ Let's take a look at the basic components of the User Interface(UI)!
 
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Viewing help : `help`
 
 Shows a message explaining how to access the help page.
@@ -194,6 +201,8 @@ Shows a message explaining how to access the help page.
 `help` cannot be used in event window
 
 </div>
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Adding a person : `add`
 
@@ -248,6 +257,8 @@ Adds a person to HackLink.
 
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Listing all persons : `list`
 
 Shows a list of all persons in HackLink.
@@ -255,6 +266,8 @@ Shows a list of all persons in HackLink.
 The table will show all people's name, email, phone, category, and group.
 
 **Format:** `list`
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Editing a person : `edit`
 
@@ -285,6 +298,8 @@ Update and edit participant contact details.
   2147483648.
 
 </div>
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Grouping a person : `group`
 
@@ -324,6 +339,8 @@ Assigns a participant or a staff to a group.
 
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Grouping randomly listed persons : `grouprandom`
 
 Assigns a random group to each participant and staff that are currently listed.
@@ -350,6 +367,8 @@ Assigns a random group to each participant and staff that are currently listed.
 grouped.
 
 </div>
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Commenting a person : `comment`
 
@@ -393,6 +412,8 @@ Add notes or comments to contacts.
 
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Viewing comments : `view`
 
 View comment of a specific contact
@@ -422,6 +443,8 @@ View comment of a specific contact
   differently in the application. It is recommended to use only alphanumeric characters and common punctuation marks
   when making comment. Use of special characters is at your own risk.
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Locating persons by keywords : `find`
 
 Finds persons who contain any of the given keywords.
@@ -445,6 +468,8 @@ Finds persons who contain any of the given keywords.
   ![img.png](images/findAlexDavid.png)
 - `find participant` returns a list that includes all participants in the list
 - `find 1` returns a list that includes the person with group number 1
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Exporting selected people : `link`
 
@@ -489,6 +514,8 @@ The csv file will be saved in the `selectedPeople` folder with the name `list.cs
 
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Removing a person : `delete`
 
 Deletes the person identified by the index shown in the displayed person list.
@@ -503,6 +530,8 @@ Deletes the person identified by the index shown in the displayed person list.
 
 - `delete 1` deletes the first person in the list.
 
+[Back to Table of Contents](#table-of-contents)
+
 ## Event features
 
 <div markdown="block" class="alert alert-info">
@@ -512,6 +541,8 @@ menu in the menubar.
 Refer to the [Event Window](#event-window) section for more details.
 
 </div>
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Adding an event : `addevent`
 
@@ -537,12 +568,16 @@ is 2147483647. Please delete some events to add a new event if you reach the lim
 
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Listing all events : `listevent`
 
 Shows a list of all events in HackLink.
 The table will show all the data
 
 **Format:** `listevent`
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Removing an event : `deleteevent`
 
@@ -557,6 +592,8 @@ Remove specific events from the database.
 **Example:**
 
 - `deleteevent 1`
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Locating events by keywords : `findevent`
 
@@ -577,6 +614,8 @@ Finds events which contain any of the given keywords.
 - `findevent lecture` returns `AI lecture`, `OS lecture`<br>
 - `findevent participant` returns all events for participants in the list
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Clearing all entries : `clear`
 
 Clears all entries from the database, either the persons or events.
@@ -585,6 +624,8 @@ Clears all entries from the database, either the persons or events.
 
 - Inputting the clear command in the **main window** clears all **persons**.
 - Inputting the clear command in the **events window** clears all **events**.
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Exiting the program : `exit`
 
@@ -596,12 +637,16 @@ Exits the program.
 
 **Note**: `exit` cannot be used in event window
 
+[Back to Table of Contents](#table-of-contents)
+
 ## Utility features
 
 ### Saving the data
 
 HackLink data are saved in the hard disk automatically after any command that changes the data. There is no need to save
 manually.
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Editing the data file
 
@@ -613,6 +658,8 @@ If your changes to the data file makes its format invalid, HackLink will discard
 Furthermore, certain edits can cause the HackLink to behave in unexpected ways (e.g., if the value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Undo
 
 You can undo the last **changes made to the contact list** by using `undo` command. This will revert the last command
@@ -621,6 +668,8 @@ that changed the data.
 **Format:** `undo`
 
 **Aliases:** `ud`
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Redo
 
@@ -637,10 +686,14 @@ cannot use these commands to revert the changes made to the event list.
 
 </div>
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Navigating to older commands
 
 HackLink allows you to navigate to older commands using the up and down arrow keys. This feature is useful when you want
 to repeat a command you have previously entered.
+
+[Back to Table of Contents](#table-of-contents)
 
 ### Aliases
 
@@ -657,6 +710,8 @@ specified otherwise by the command. Please refer to each command details for the
   participant
   named "John" with given information to the contact list.
 
+[Back to Table of Contents](#table-of-contents)
+
 ### Shortcuts
 
 Shortcuts are a way to quickly perform action from the keyboard. The available shortcuts are:
@@ -665,6 +720,8 @@ Shortcuts are a way to quickly perform action from the keyboard. The available s
 - `F2` : Focus on the command box
 - `F3` : Focus on the result box (to scroll up and down in case of overflow)
 - `F4` : Focus on the list of contacts (to scroll up and down in case of overflow)
+
+[Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -680,6 +737,8 @@ the app contains some sample data for the events.<br>
 You can get back to the main window by clicking on the Back to Main on the menubar.<br>
 ![Ui](images/backToMain.png)
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## FAQ
@@ -687,6 +746,8 @@ You can get back to the main window by clicking on the Back to Main on the menub
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains
 the data of your previous HackLink home folder.
+
+[Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -698,6 +759,8 @@ the data of your previous HackLink home folder.
    should display a warning message indicating the failure.
 3. **Invalid input for update** : If the input for editing a person's information is invalid, the application should
    display a warning message indicating the failure and provide guidance on the correct format.
+
+[Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -717,6 +780,8 @@ the data of your previous HackLink home folder.
       The suggested workaround is to use [`redo` command](#redo) to delete the same person again, or to search for that
       exact person using [`find` command](#locating-persons-by-keywords--find) and delete them.
 
+[Back to Table of Contents](#table-of-contents)
+
 ---
 
 ## Tips
@@ -725,6 +790,8 @@ the data of your previous HackLink home folder.
    participants. This makes it easier to identify and manage individuals within the application.
 2. **Utilize the utility features**: The application provides utility features such as navigating to older commands,
    aliases, and shortcuts. These features can help you manage your data more efficiently.
+
+[Back to Table of Contents](#table-of-contents)
 
 ---
 
@@ -751,3 +818,5 @@ the data of your previous HackLink home folder.
 | **Exit**           | `exit`                                                                                                                                   | 
 | **Undo**           | `undo`                                                                                                                                   |
 | **Redo**           | `redo`                                                                                                                                   |
+
+[Back to Table of Contents](#table-of-contents)
